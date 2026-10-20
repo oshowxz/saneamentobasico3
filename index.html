@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f9fc">
+  <meta name="description" content="Painel interativo sobre saneamento básico de Sinop (MT): indicadores municipais, mapa e dados simulados por bairro com identificação explícita.">
+  <title>Saneamento Sinop | Mapa e indicadores</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#inicio" class="brand" aria-label="Saneamento Sinop — início"><img src="assets/logo-horizontal.png" alt="Saneamento Sinop · MT"></a>
+      <nav aria-label="Navegação principal"><a href="#mapa">Mapa interativo</a><a href="#metas">Metas</a><a href="#fontes">Fontes</a></nav>
+      <button class="theme-btn" id="tema" type="button" aria-label="Alternar entre tema claro e escuro" title="Alternar tema"><span id="temaIcone">☾</span></button>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pin"></span> SINOP · MATO GROSSO</span>
+        <h1>O saneamento da cidade,<br><span>bairro a bairro.</span></h1>
+        <p>Explore indicadores de abastecimento de água, esgotamento sanitário e coleta de lixo. Conheça os dados do município e visualize uma simulação educativa por bairro.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#mapa">Explorar mapa <span aria-hidden="true">↗</span></a><a class="quiet-link" href="#fontes">Ver fontes dos dados <span aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
+        <div class="hero-graphic"><img src="assets/logo.svg" alt=""><div><span>Painel interativo</span><strong>SINOP<span>·</span>MT</strong><small>Informação e sustentabilidade</small></div></div>
+        <span class="art-dot art-dot-1"></span><span class="art-dot art-dot-2"></span><span class="art-dot art-dot-3"></span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="overview" aria-labelledby="overviewTitle">
+      <div class="section-head overview-head"><div><p class="section-kicker">PANORAMA MUNICIPAL</p><h2 id="overviewTitle">Sinop em números</h2></div><span class="source-chip">Indicadores municipais de fontes citadas</span></div>
+      <div class="kpis" id="kpis"><div class="placeholder">Carregando indicadores municipais…</div></div>
+    </section>
+
+    <section id="mapa" class="map-section" aria-labelledby="mapTitle">
+      <div class="section-head"><div><p class="section-kicker">EXPLORAR OS BAIRROS</p><h2 id="mapTitle">Mapa interativo de saneamento</h2><p class="section-description">Selecione um indicador, procure um bairro e visualize seus detalhes.</p></div><span class="demo-badge">SIMULAÇÃO POR BAIRRO</span></div>
+      <div class="data-notice" role="note"><span class="notice-icon" aria-hidden="true">i</span><div><strong>Atenção: percentuais por bairro são fictícios.</strong> Criados apenas para demonstração escolar. Os dados municipais são apresentados separadamente com referência e fonte; pontos no mapa são ilustrativos até serem geolocalizados.</div></div>
+      <div class="map-layout">
+        <div class="card map-card">
+          <div class="map-card-heading"><div><h3><span class="heading-icon">◈</span> Mapa de Sinop</h3><p>Explore as camadas de indicadores</p></div><select id="base" aria-label="Visualização do mapa"><option value="osm">Mapa de ruas</option><option value="sat">Satélite</option></select></div>
+          <div class="tabs" id="tabs" role="group" aria-label="Indicadores do mapa"></div>
+          <div class="map-frame"><div id="map" aria-label="Mapa interativo de Sinop, MT"></div><div class="map-unavailable" id="map-unavailable" hidden><strong>Mapa indisponível</strong><p>Conecte-se à internet para carregar o mapa. A lista de bairros continua funcionando.</p></div><span class="map-overlay-label" id="map-overlay-label">PONTOS ILUSTRATIVOS</span></div>
+          <div class="legend" id="legend"></div>
+          <div class="geo-tools"><div class="geo-status" id="geoStatus">Os pontos representam posições aproximadas apenas para visualização.</div><button id="geolocalizar" type="button" class="secondary-btn">Localizar bairros no mapa real <span aria-hidden="true">↗</span></button></div>
+          <div class="progress" id="prog" hidden><div><i id="progBar"></i></div><span id="progTxt">Buscando coordenadas…</span></div>
+        </div>
+        <aside class="card sidebar" aria-labelledby="listTitle">
+          <div class="list-heading"><div><h3 id="listTitle"><span class="heading-icon">☷</span> Bairros de Sinop</h3><p>Confira a situação e os percentuais simulados.</p></div><span class="count-pill" id="cont">—</span></div>
+          <label for="busca" class="sr-only">Buscar bairro</label><div class="search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="busca" autocomplete="off" placeholder="Buscar um bairro pelo nome…"></div>
+          <div class="chips" id="chips" role="group" aria-label="Filtrar situação da rede"></div>
+          <div class="rank-head"><span>Bairro</span><span id="rankMetric">Esgoto simulado (%)</span></div>
+          <ul class="rank" id="rank" aria-label="Lista de bairros"></ul>
+          <div class="list-foot"><span id="listInfo">—</span><button type="button" id="mais" class="more-btn" hidden>Mostrar mais bairros ↓</button></div>
+          <div class="detail" id="detalhe" hidden></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="goals-section" id="metas" aria-labelledby="goalsTitle">
+      <div class="section-head"><div><p class="section-kicker">EVOLUÇÃO E OBJETIVOS</p><h2 id="goalsTitle">Rumo à meta de esgoto</h2><p class="section-description">Veja os indicadores publicados e as metas mencionadas nas fontes do projeto.</p></div></div>
+      <div class="card goals-card"><div id="metasbars" class="goals-grid"></div><div class="goals-foot"><span class="notice-icon">i</span><span>As barras têm anos e metodologias diferentes. Não representam uma única série histórica e não devem ser comparadas diretamente.</span></div></div>
+    </section>
+
+    <section class="sources-section" id="fontes" aria-labelledby="sourcesTitle">
+      <div class="section-head"><div><p class="section-kicker">TRANSPARÊNCIA</p><h2 id="sourcesTitle">Fontes e metodologia</h2><p class="section-description">Saiba o que é informação de fonte pública e o que foi criado para a demonstração.</p></div></div>
+      <div class="source-cards">
+        <article class="card source-card"><div class="source-symbol">✓</div><h3>Dados do município</h3><p>Indicadores municipais transcritos da planilha enviada, com seus respectivos anos, fontes e links. Mantidos sem substituição por valores fictícios.</p><span class="source-type">Com referências</span></article>
+        <article class="card source-card"><div class="source-symbol source-symbol-orange">!</div><h3>Simulação por bairro</h3><p>Percentuais de água, esgoto e lixo dos 55 bairros foram inventados para ilustrar a interface. Não são medições do IBGE nem da concessionária.</p><span class="source-type fictional-type">100% fictício</span></article>
+        <article class="card source-card"><div class="source-symbol source-symbol-purple">⌖</div><h3>Localização no mapa</h3><p>Sem coordenadas verificadas no CSV, as posições são apenas ilustrativas. Use o botão de geolocalização ou o script fornecido para tentar substituí-las por localizações reais do OSM.</p><span class="source-type">Geolocalização opcional</span></article>
+      </div>
+      <details class="card sources-table-card"><summary><span><strong>Consultar indicadores e links das fontes</strong><small>Abra para conferir os registros originais da planilha municipal.</small></span><span class="summary-chevron">⌄</span></summary><div class="table-scroll"><table class="sources-table"><thead><tr><th>Indicador</th><th>Valor</th><th>Referência</th><th>Fonte / acesso</th></tr></thead><tbody id="tab"></tbody></table></div></details>
+    </section>
+    <div class="bottom-cta"><div><strong>Quer usar uma planilha própria?</strong><p>Importe um CSV com nomes de bairros e percentuais para substituir os valores da simulação nesta sessão.</p></div><label class="upload-btn" for="csv">Importar CSV <span aria-hidden="true">↑</span><input type="file" id="csv" accept=".csv,text/csv" hidden></label></div><p id="uploadStatus" class="upload-status" role="status"></p>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="assets/logo.svg" alt=""><span><strong>Saneamento Sinop</strong><small>Projeto escolar · Sinop, Mato Grosso</small></span></div><span>Mapa educacional · Percentuais por bairro fictícios e identificados</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saneamento Sinop — Mapa de calor</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <img class="logo" src="assets/logo.svg" alt=""><b>Saneamento Sinop</b>
+  <nav><a href="#mapa">Mapa</a><a href="#metas">Metas</a><a href="#fontes">Fontes</a></nav>
+  <button class="tbtn" id="tema" title="Alternar tema" aria-label="Alternar tema">◐</button>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="badge">Sinop · Mato Grosso</span>
+    <h1>O saneamento da cidade, <span>bairro a bairro</span>.</h1>
+    <p>Água, esgoto e lixo em Sinop: números oficiais do Censo 2022 e um mapa da rede de esgoto com as informações públicas das fontes citadas abaixo.</p>
+  </div>
+  <div class="big"><img class="logo" src="assets/logo.svg" alt="Logo do mapa de saneamento de Sinop"></div>
+</section>
+
+<main>
+  <div class="kpis" id="kpis"></div>
+
+  <div class="panel" id="mapa">
+    <div class="card">
+      <div class="tools">
+        <div class="tabs" id="tabs"></div>
+        <select id="base" aria-label="Tipo de mapa"><option value="osm">Mapa</option><option value="sat">Satélite</option></select>
+      </div>
+      <div id="prog"><i></i></div>
+      <div id="mapwrap"><div id="map"></div></div>
+      <div class="legend" id="legend"></div>
+      <div class="note" id="aviso" style="margin:14px 0 0"></div>
+    </div>
+    <div class="card">
+      <input type="search" id="busca" placeholder="Buscar bairro…" style="width:100%">
+      <div class="chips" id="chips"></div>
+      <b id="cont"></b>
+      <ul class="rank" id="rank"></ul>
+      <div class="detail" id="detalhe"></div>
+    </div>
+  </div>
+
+  <h2 id="metas">Rumo à meta de esgoto</h2>
+  <div class="card">
+    <p style="margin:0 0 10px;color:var(--mut)">Cada barra usa um critério diferente, então elas não são comparáveis entre si. Servem para mostrar o tamanho do caminho até a meta de 98% em 2032.</p>
+    <div id="metasbars"></div>
+  </div>
+
+  <h2 id="fontes">Fontes e atualização</h2>
+  <div class="card tw"><table class="tbl"><thead><tr><th>Indicador</th><th>Valor</th><th>Referência</th><th>Fonte</th></tr></thead><tbody id="tab"></tbody></table></div>
+  <div class="src" style="margin-top:14px">
+    <div class="card"><h3>Como o mapa é feito</h3><p>A localização de cada bairro vem do OpenStreetMap. A situação da rede de esgoto vem das notícias oficiais citadas em <b>dados/bairros.csv</b>.</p></div>
+    <div class="card"><h3>Limites dos dados</h3><p>As fontes citam só alguns bairros, e a cidade tem mais de 130 com rede. Bairro fora do mapa ou sem cor significa "sem informação", e não "sem rede".</p></div>
+    <div class="card"><h3>Seus percentuais</h3><p>Tem os percentuais do IBGE por bairro? Envie o CSV abaixo e as camadas de água, esgoto e lixo passam a ter cor.</p><div class="drop">Escolher planilha .csv<input type="file" id="csv" accept=".csv,text/csv"></div></div>
+  </div>
+</main>
+
+<footer><img class="logo" src="assets/logo.svg" alt="" style="font-size:26px"><span>Mapa de calor do saneamento básico de Sinop (MT) · Trabalho escolar</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

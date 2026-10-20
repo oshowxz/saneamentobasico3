@@ -1,0 +1,29 @@
+﻿id;descricao;valor;unidade;referencia;fonte;url
+pop_2022;População residente (Censo 2022);196312;pessoas;2022;IBGE;https://www.ibge.gov.br/cidades-e-estados/mt/sinop.html
+pop_2025;População estimada 2025;223780;pessoas;2025;IBGE (divulgado pela Prefeitura de Sinop);https://www.sinop.mt.gov.br/portal/noticias/0/3/12506/populacao-de-sinop-ultrapassa-os-223-mil-habitantes-e-prefeito-atribui-ao-planejamento-do-municipio
+pop_2026;População estimada 2026;231452;pessoas;1º/jul/2026;IBGE (divulgado pela Prefeitura de Sinop);https://www.sinop.mt.gov.br/portal/noticias/0/3/13809/sinop-ultrapassa-231-mil-habitantes-e-registra-crescimento-de-74-em-uma-decada-aponta-ibge
+agua_rede_pct;Moradores com água por rede geral;88.9;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+agua_poco_pct;Moradores com água de poço profundo ou artesiano;10;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+esgoto_rede_pct;Moradores com esgoto por rede geral, pluvial ou fossa ligada à rede;17.3;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+fossa_sep_pct;Moradores com fossa séptica ou fossa filtro não ligada à rede;28.1;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+fossa_rud_pct;Moradores com fossa rudimentar ou buraco;54.5;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+lixo_pct;Moradores com lixo coletado;96.5;%;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+lixo_sinisa_pct;População atendida com coleta de resíduos domiciliares;97.1;%;SINISA 2024;SINISA (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+sem_banheiro;Moradores sem banheiro nem sanitário;8;pessoas;Censo 2022;IBGE (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+agua_sinisa_pct;População com acesso a serviço público de água;97;%;SINISA 2024;SINISA (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+esgoto_sinisa_pct;População com acesso a serviço público de esgoto;33.9;%;SINISA 2024;SINISA (via Água e Saneamento);https://www.aguaesaneamento.org.br/municipios-e-saneamento/mt/sinop
+esgoto_as_pct;Cobertura de esgoto informada pela concessionária;40;%;2025;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
+meta_2026_pct;Meta de cobertura de esgoto após as obras de 2026;50;%;2026;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
+meta_2032_pct;Meta de cobertura de esgoto;98;%;2032;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
+rede_km;Rede de esgoto instalada;589;km;início de 2026;Águas de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+rede_oper_km;Rede de esgoto já em operação (do total instalado);310;km;fev/2026;Águas de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+rede_km_abr26;Rede de esgoto implantada (informada pelo diretor-presidente);650;km;abr/2026;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-pretende-instalar-64-km-de-rede-de-esgoto-em-2026/244790624
+bairros_total;Bairros legalizados em Sinop;323;bairros;fev/2026;Prefeitura de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+bairros_rede;Bairros alcançados pela rede de esgoto;135;bairros;dez/2025;Águas de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+bairros_trat;Bairros que já usam o sistema de tratamento;61;bairros;dez/2025;Águas de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+ete_l_dia;Capacidade das ETEs Curupy e Teles Pires;4838400;litros/dia;início de 2026;Águas de Sinop (via SóNews);https://sounews.com.br/sinop-avanca-no-saneamento-basico-e-se-torna-a-cidade-de-mt-que-mais-investiu-no-setor-em-2025/
+rede_2025_km;Rede de esgoto construída em 2025;82.5;km;2025;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
+moradores_2025;Moradores beneficiados pelas obras de 2025;44000;pessoas;2025;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
+moradores_2026;Moradores a serem atendidos pelas obras de 2026;23000;pessoas;2026;Águas de Sinop (via CDL Sinop);https://www.cdlsinop.com.br/comunicacao/noticias/aguas-de-sinop-apresenta-a-cdl-sinop-pacote-de-obras-deste-ano/11181
+meta_2026_moradores;Moradores com coleta de esgoto previstos ao fim de 2026 (50% da cidade);110000;pessoas;2026;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-pretende-instalar-64-km-de-rede-de-esgoto-em-2026/244790624
+obras_2026_km;Rede de esgoto planejada para 2026;64;km;2026;Águas de Sinop (via GC Notícias);https://www.gcnoticias.com.br/geral/aguas-de-sinop-retoma-obras-de-esgoto-com-foco-na-qualidade/243256336
